@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cash Crash</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="buy.css" />
+    <link rel="icon" href="gold1.ico" />
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+      function redirectToBuyAfterPage() {
+        // Get the values entered by the user
+        var gameId = document.getElementById("gameId").value;
+        var email = document.getElementById("email").value;
+
+        // Encode the values 
+        gameId = encodeURIComponent(gameId);
+        email = encodeURIComponent(email);
+
+        // Redirect to buyafter.html 
+        window.location.href = "buyafter.html?gameId=" + gameId + "&email=" + email;
+      }
+    </script>
+  </head>
+
+  <body style="overflow-y: scroll; overflow-x: hidden">
+    <header>
+      <a href="" class="logo"
+        >Cash Crash
+        <img
+          src="gold1.ico"
+          alt="Icon"
+          class="navbar-icon"
+          width="30"
+          height="30"
+        />
+      </a>
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="info.html">Game Info</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="hot.html">Hot Deals</a></li>
+        <li><a href="about.html">about us</a></li>
+      </ul>
+
+      <div class="toggleMenu"></div>
+    </header>
+    <div class="wrapper">
+      <h2>Enter your Game ID and Email</h2>
+      <form>
+        <div class="input-box">
+          <input type="text" id="gameId" placeholder="Enter your Game ID" required />
+        </div>
+        <div class="input-box">
+          <input type="email" id="email" placeholder="Enter your email" required />
+        </div>
+        <label for="payment">Select Payment Method:</label>
+
+        <select name="payment" id="payment">
+          <option value="Gcash">Gcash</option>
+          <option value="Paymaya">Paymaya</option>
+          <option value="Paypal">Paypal</option>
+          <option value="DragonPay">DragonPay</option>
+        </select>
+        <div class="input-box button">
+          <input type="button" value="Buy Now" onclick="redirectToBuyAfterPage()" />
+        </div>
+        
+      </form>
+    </div>
+  </body>
+</html>

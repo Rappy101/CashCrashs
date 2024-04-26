@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Crash</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="buy.css">
+    <link rel="icon" href="gold1.ico">
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script>
+        // Countdown function
+        function countdown() {
+            var count = 5; 
+            var redirectUrl = "shop.html"; 
+
+            var countdownInterval = setInterval(function() {
+                count--;
+                document.getElementById("countdown").innerHTML = "You will be redirected in " + count + " seconds...";
+
+                if (count <= 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = redirectUrl; 
+                }
+            }, 1000);
+        }
+
+     
+        window.onload = function() {
+            countdown();
+            displayPurchaseInfo(); 
+        };
+
+        // Function to display purchase info
+        function displayPurchaseInfo() {
+            var urlParams = new URLSearchParams(window.location.search); 
+            var gameId = urlParams.get('gameId');
+            var email = urlParams.get('email'); 
+
+            // Display Game ID and Email
+            document.getElementById("gameIdDisplay").innerHTML = "<h2>Game ID: " + gameId + "</h2>";
+            document.getElementById("emailDisplay").innerHTML = "<h2>Email: " + email + "</h2>";
+        }
+    </script>
+</head>
+
+<body style="overflow-y: scroll; overflow-x: hidden;">
+    <header>
+        <a href="" class="logo">Cash Crash <img src="gold1.ico" alt="Icon" class="navbar-icon" width="30" height="30"> </a>
+        <ul class="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="info.html">Game Info</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="hot.html">Hot Deals</a></li>
+            <li><a href="about.html">about us</a></li>
+        </ul>
+
+
+        <div class="toggleMenu"></div>
+    </header>
+
+    <div class="end">
+        <div id="gameIdDisplay"></div>
+        <div id="emailDisplay"></div>
+        <br>
+
+        <h2>Thank you for purchasing!</h2>
+        <br>
+        <h2>Please come again!</h2>
+        <br>
+    
+        <!-- Display purchase information -->
+       
+        <h2 id="countdown">You will be redirected in 5 seconds...</h2>
+
+    </div>
+</body>
+
+</html>
